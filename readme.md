@@ -1,6 +1,6 @@
-## This is a toy ledger CLI that process transactions list via csv and returns the account final balance state.
+# This is a toy ledger CLI that process transactions list via csv and returns the account final balance state.
 
-# Required csv input format and output format please view examples in tests dir.
+## Required csv input format and output format please view examples in tests dir.
 
 # Assumptions :
 1. All incoming transactions amount are positive. 
