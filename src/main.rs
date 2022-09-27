@@ -186,8 +186,8 @@ mod tests {
     fn test_dispute() -> Result<(), Box<dyn Error>> {
         let ledger = process_records(&"src/tests/input/dispute.csv".to_string()).unwrap();
         assert_eq!(ledger[&1].available, -1.0);
-        assert_eq!(ledger[&1].held, 1.5);
-        assert_eq!(ledger[&1].total, 0.5);
+        assert_eq!(ledger[&1].held, 11.5);
+        assert_eq!(ledger[&1].total, 10.5);
         assert!(!ledger[&1].locked);
         Ok(())
     }
@@ -218,17 +218,6 @@ mod tests {
         assert!(!ledger[&1].locked);
         Ok(())
     }
-
-    #[test]
-    fn test_deposit() -> Result<(), Box<dyn Error>> {
-        let ledger = process_records(&"src/tests/input/deposit.csv".to_string()).unwrap();
-        assert_eq!(ledger[&1].available, 11.50);
-        assert_eq!(ledger[&1].held, 0.0);
-        assert_eq!(ledger[&1].total, 11.50);
-        assert!(!ledger[&1].locked);
-        Ok(())
-    }
-
     #[test]
     fn test_mixed() -> Result<(), Box<dyn Error>> {
         let ledger = process_records(&"src/tests/input/mixed.csv".to_string()).unwrap();
