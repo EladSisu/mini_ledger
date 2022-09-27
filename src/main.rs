@@ -121,7 +121,7 @@ fn create_new_account(record: &Transaction) -> Account {
 fn process_records(csv: &String) -> Result<HashMap<u16, Account>, Box<dyn Error>> {
     let mut tx_history: HashMap<u32, Transaction> = HashMap::new();
     let mut ledger: HashMap<u16, Account> = HashMap::new();
-    let mut rdr = csv::Reader::from_path(csv)?;
+    let mut rdr = csv::ReaderBuilder::new().trim(csv::Trim::All).from_path(csv)?;
     let mut successful = false;
     for result in rdr.deserialize() {
         let mut record: Transaction = result?;
